@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import urllib2
 from urlparse import urljoin
 
-def getoutlinks(url, useragent):
+def getoutlinks(url, useragent='Python 2.7'):
     opener = urllib2.build_opener()
     opener.addheaders = [('User-agent', useragent)]    
     soup = BeautifulSoup(opener.open(url))
@@ -23,5 +23,4 @@ def getoutlinks(url, useragent):
             outlinks.add(link)
         except:
             pass
-      
     return sorted(list(outlinks))
